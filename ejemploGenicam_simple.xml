@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RegisterDescription xmlns="http://www.genicam.org/GenApi/Version_1_1"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     ModelName="C6_X_GigE"
+                     VendorName="AT_Automation_Technology_GmbH"
+                     ToolTip="C6_X_GigE"
+                     StandardNameSpace="GEV"
+                     SchemaMajorVersion="1"
+                     SchemaMinorVersion="1"
+                     SchemaSubMinorVersion="0"
+                     MajorVersion="2"
+                     MinorVersion="5"
+                     SubMinorVersion="3"
+                     ProductGuid="5111115D-3417-46C3-A3B8-C097C9C53DA8"
+                     VersionGuid="84C56005-1AC9-41B6-9E35-5AFB2FF5C2AE"
+                     xsi:schemaLocation="http://www.genicam.org/GenApi/Version_1_1 http://www.genicam.org/GenApi/GenApiSchema_Version_1_1.xsd">
+
+
+    <Group Comment="RootCategory">
+        <Category Name="Root" NameSpace="Standard">
+            <Visibility>Beginner</Visibility>
+            <pFeature>DeviceControl</pFeature>
+        </Category>
+    </Group>
+	
+    <Group Comment="SubCategories">
+		<Category Name="DeviceControl" NameSpace="Standard">
+			<ToolTip>Category for Device information and control.</ToolTip>
+			<Description>Category for Device information and control.</Description>
+			<DisplayName>Device Control</DisplayName>
+			<Visibility>Beginner</Visibility>
+			<ImposedAccessMode>RO</ImposedAccessMode>
+			<pFeature>DeviceCapabilities</pFeature>
+			<pFeature>DeviceVendorName</pFeature>
+			<pFeature>DeviceModelName</pFeature>
+			<pFeature>DeviceFamilyName</pFeature>
+
+		</Category>
+    </Group>
+
+    <Group Comment="DeviceControl">
+ 
+         <IntSwissKnife Name="isDeviceCapabilitiesRegionTrackingSupported">
+            <pVariable Name="Y">DeviceCapabilitiesReg</pVariable>
+            <Formula>((Y  &amp; (1 &lt;&lt; 0)) &gt;&gt; 0)</Formula>
+        </IntSwissKnife>
+        <IntSwissKnife Name="isDeviceCapabilitiesRegionSearchSupported">
+            <pVariable Name="Y">DeviceCapabilitiesReg</pVariable>
+            <Formula>((Y  &amp; (1 &lt;&lt; 1)) &gt;&gt; 1)</Formula>
+        </IntSwissKnife>
+        <IntSwissKnife Name="isDeviceCapabilitiesSelfTriggeringSupported">
+            <pVariable Name="Y">DeviceCapabilitiesReg</pVariable>
+            <Formula>((Y  &amp; (1 &lt;&lt; 2)) &gt;&gt; 2)</Formula>
+        </IntSwissKnife>
+        <IntSwissKnife Name="isDeviceCapabilitiesWarpSupported">
+            <pVariable Name="Y">DeviceCapabilitiesReg</pVariable>
+            <Formula>((Y  &amp; (1 &lt;&lt; 3)) &gt;&gt; 3)</Formula>
+        </IntSwissKnife>
+        <IntSwissKnife Name="isDeviceCapabilitiesNBaseTSupported">
+            <pVariable Name="Y">DeviceCapabilitiesReg</pVariable>
+            <Formula>((Y  &amp; (1 &lt;&lt; 5)) &gt;&gt; 5)</Formula>
+        </IntSwissKnife>
+        <IntSwissKnife Name="isDeviceCapabilitiesTemperatureImageSensorSupported">
+            <pVariable Name="Y">DeviceCapabilitiesReg</pVariable>
+            <Formula>((Y  &amp; (1 &lt;&lt; 16)) &gt;&gt; 16)</Formula>
+        </IntSwissKnife>
+        <IntSwissKnife Name="isDeviceCapabilitiesTemperatureFpgaSupported">
+            <pVariable Name="Y">DeviceCapabilitiesReg</pVariable>
+            <Formula>((Y  &amp; (1 &lt;&lt; 17)) &gt;&gt; 17)</Formula>
+        </IntSwissKnife>
+        <IntSwissKnife Name="isDeviceCapabilitiesTemperatureEthernetPhySupported">
+            <pVariable Name="Y">DeviceCapabilitiesReg</pVariable>
+            <Formula>((Y  &amp; (1 &lt;&lt; 18)) &gt;&gt; 18)</Formula>
+        </IntSwissKnife>
+        <IntSwissKnife Name="isDeviceCapabilitiesTemperaturePcbSensor1Supported">
+            <pVariable Name="Y">DeviceCapabilitiesReg</pVariable>
+            <Formula>((Y  &amp; (1 &lt;&lt; 20)) &gt;&gt; 20)</Formula>
+        </IntSwissKnife>
+        <IntSwissKnife Name="isDeviceCapabilitiesTemperaturePcbSensor2Supported">
+            <pVariable Name="Y">DeviceCapabilitiesReg</pVariable>
+            <Formula>((Y  &amp; (1 &lt;&lt; 21)) &gt;&gt; 21)</Formula>
+        </IntSwissKnife>
+        <IntSwissKnife Name="isDeviceCapabilitiesTemperaturePcbIo1Supported">
+            <pVariable Name="Y">DeviceCapabilitiesReg</pVariable>
+            <Formula>((Y  &amp; (1 &lt;&lt; 24)) &gt;&gt; 24)</Formula>
+        </IntSwissKnife>
+        <IntSwissKnife Name="isDeviceCapabilitiesTemperaturePcbIo2Supported">
+            <pVariable Name="Y">DeviceCapabilitiesReg</pVariable>
+            <Formula>((Y  &amp; (1 &lt;&lt; 25)) &gt;&gt; 25)</Formula>
+        </IntSwissKnife>
+        <IntSwissKnife Name="isDeviceCapabilitiesTemperaturePcbFpgaSupported">
+            <pVariable Name="Y">DeviceCapabilitiesReg</pVariable>
+            <Formula>((Y  &amp; (1 &lt;&lt; 28)) &gt;&gt; 28)</Formula>
+        </IntSwissKnife>
+		
+        <StringReg Name="DeviceVendorName" NameSpace="Standard">
+            <ToolTip>Name of the manufacturer of the device.</ToolTip>
+            <Description>Name of the manufacturer of the device.</Description>
+            <DisplayName>Device Vendor Name</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <Address>0x0048</Address>
+            <Length>32</Length>
+            <AccessMode>RO</AccessMode>
+            <pPort>Device</pPort>
+        </StringReg>
+
+        <StringReg Name="DeviceModelName" NameSpace="Standard">
+            <Extension><Defaults>AT-Automation Technology GmbH</Defaults></Extension>
+            <ToolTip>Model of the device.</ToolTip>
+            <Description>Model of the device.</Description>
+            <DisplayName>Device Model Name</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <Address>0x0068</Address>
+            <Length>32</Length>
+            <AccessMode>RO</AccessMode>
+            <pPort>Device</pPort>
+        </StringReg>
+
+        <StringReg Name="DeviceFamilyName" NameSpace="Standard">
+            <ToolTip>Family Name of the device.</ToolTip>
+            <Description>Family Name of the device.</Description>
+            <DisplayName>Device Family Name</DisplayName>
+            <Visibility>Beginner</Visibility>
+            <ImposedAccessMode>RO</ImposedAccessMode>
+            <Address>0xA010</Address>
+            <Length>32</Length>
+            <AccessMode>RO</AccessMode>
+            <pPort>Device</pPort>
+        </StringReg>
+
+    </Group>
+
+
+
+</RegisterDescription>

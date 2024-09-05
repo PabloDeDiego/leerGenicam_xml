@@ -1,0 +1,9 @@
+<root>
+    <title>Example XML</title>
+    <author>John Doe</author>
+    <content>
+        <section>Introduction</section>
+        <section>Body</section>
+        <section>Conclusion</section>
+    </content>
+</root>
